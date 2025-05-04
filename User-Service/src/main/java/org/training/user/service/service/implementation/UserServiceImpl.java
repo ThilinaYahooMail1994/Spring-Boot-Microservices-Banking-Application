@@ -81,13 +81,20 @@ public class UserServiceImpl implements UserService {
         userRepresentation.setCredentials(Collections.singletonList(credentialRepresentation));
 
         Integer userCreationResponse = keycloakService.createUser(userRepresentation);
+        log.info("User Creation Response : " + userCreationResponse.toString());
 
         if (userCreationResponse.equals(201)) {
 
             List<UserRepresentation> representations = keycloakService.readUserByEmail(userDto.getEmailId());
             UserProfile userProfile = UserProfile.builder()
                     .firstName(userDto.getFirstName())
-                    .lastName(userDto.getLastName()).build();
+                    .lastName(userDto.getLastName())
+                    .gender(userDto.getGender())
+                    .address(userDto.getAddress())
+                    .occupation(userDto.getOccupation())
+                    .martialStatus(userDto.getMartialStatus())
+                    .nationality(userDto.getNationality())
+                    .build();
 
             User user = User.builder()
                     .emailId(userDto.getEmailId())

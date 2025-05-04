@@ -27,6 +27,7 @@ app:
     keycloak:
       server-url: http://localhost:8571
       realm: banking-service
-      client-id: banking-service-api-client
-      client-secret: 932OFITe8vtH4z0G9gem4Afd69JhbwrI
+      client-id: banking-service-client
+      client-secret: 6ATG2Ouq0T2H0el9UGfhFbodMLwWJbrP
+      grant-type: client_credentials
 

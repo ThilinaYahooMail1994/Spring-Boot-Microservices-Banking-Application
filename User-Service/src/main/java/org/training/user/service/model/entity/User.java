@@ -15,7 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 @Data
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +28,6 @@ public class User {
     private String authId;
 
     private String identificationNumber;
-
-    @CreationTimestamp
-    private LocalDate creationOn;
 
     @Enumerated(EnumType.STRING)
     private Status status;

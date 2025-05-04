@@ -12,12 +12,15 @@ import lombok.NoArgsConstructor;
 public class CreateUser {
 
     private String firstName;
-
     private String lastName;
-
     private String contactNumber;
-
     private String emailId;
-
     private String password;
+
+    // Add these for UserProfile
+    private String gender;
+    private String address;
+    private String occupation;
+    private String martialStatus;
+    private String nationality;
 }

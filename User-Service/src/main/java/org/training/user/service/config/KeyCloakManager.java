@@ -1,6 +1,7 @@
 package org.training.user.service.config;
 
 import lombok.RequiredArgsConstructor;
+import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.springframework.stereotype.Component;
 

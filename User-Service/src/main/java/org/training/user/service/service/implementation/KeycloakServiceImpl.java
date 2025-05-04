@@ -26,6 +26,7 @@ public class KeycloakServiceImpl implements KeycloakService {
     @Override
     public Integer createUser(UserRepresentation userRepresentation) {
 
+
         return keyCloakManager.getKeyCloakInstanceWithRealm().users().create(userRepresentation).getStatus();
     }
 
