@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Account {
+public class Account extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +30,6 @@ public class Account {
 
     @Enumerated(EnumType.STRING)
     private AccountStatus accountStatus;
-
-    @CreationTimestamp
-    private LocalDate openingDate;
 
     private BigDecimal availableBalance;
 
