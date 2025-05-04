@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 @Entity
-public class FundTransfer {
+public class FundTransfer extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +36,4 @@ public class FundTransfer {
 
     @Enumerated(EnumType.STRING)
     private TransferType transferType;
-
-    @CreationTimestamp
-    private LocalDateTime transferredOn;
 }
