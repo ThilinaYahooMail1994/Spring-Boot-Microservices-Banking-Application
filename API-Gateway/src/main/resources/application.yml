@@ -1,10 +1,10 @@
 server:
-  port: 8080
+  port: 8089
 
 app:
   config:
     keycloak:
-      url: http://localhost:8571/
+      url: http://localhost:8571
       realm: banking-service
 
 eureka:
@@ -26,7 +26,7 @@ spring:
         - id: fund-transfer-service
           uri: lb://fund-transfer-service
           predicates:
-            - Path=/api/fund-transfers/**
+            - Path=/api/fund-transfers/**,/fund-transfers/**
         - id: account-service
           uri: lb://account-service
           predicates:
@@ -39,10 +39,6 @@ spring:
           uri: lb://transaction-service
           predicates:
             - Path=/transactions/**
-        - id: fund-transfer-service
-          uri: lb://fund-transfer-service
-          predicates:
-            - Path=/fund-transfers/**
 
   security:
     oauth2:
@@ -59,11 +55,10 @@ spring:
           banking-service-client:
             provider: keycloak
             client-id: banking-service-client
-            client-secret: Au6eAD2JgB5MH0G2tNrPLfKqObswfSPb
+            client-secret: 6ATG2Ouq0T2H0el9UGfhFbodMLwWJbrP
             authorization-grant-type: authorization_code
-            redirect-uri: http://localhost:8571/login/oauth2/code/keycloak
+            redirect-uri: http://localhost:8089/login/oauth2/code/keycloak
             scope: openid
       resourceserver:
         jwt:
           jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
-
